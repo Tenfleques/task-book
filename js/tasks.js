@@ -1,31 +1,19 @@
 function taskRow(index,row){
     var view = "table-" + index % 3; //view regulates the pagination the row is in 
-    html = '<tr class="'+view+'">';
+    var html = ""
+    if(index %3)
+        html += '<tr class="hidden '+view+'">';
+    else    
+        html += '<tr class="'+view+'">';
     for(var f in row){
         if(f !== "finished"){
             html += '<td class="task-'+f+'">' + row[f] + '</td>';
         }
     } 
+    html += '</tr>';
     return html;
 }
 $(function(){
-    //task view controls
-	function sortTable(table, field) {
-		/**
-		 * sort the table using the class of a given column and comparing the contents
-		 */
-		var asc = isDefined(arguments[2]),
-					tbody = table.find('tbody');		
-
-		tbody.find('tr').sort(function(a, b) {
-			if (asc) 
-				return $('td.'+field, a).text().localeCompare($('td.'+field, b).text());			
-			else
-				return $('td.'+field, b).text().localeCompare($('td.'+field,a).text());			
-		}).appendTo(tbody);
-	}	
-	//sortTable($('#mytable'),'asc');
-
     function loadTable(data){
         var rows = "";
         if(isDefined(arguments[1])){ //sort field
@@ -42,14 +30,22 @@ $(function(){
             rows += taskRow(row, data[row]);
         }
         $(".task-view-body").html(rows);
+        $(".page-link").on("click",function(){
+            $(".page-link").removeClass("active");
+            var target;
+            if(isDefined($(this).data("target"))){
+                $(this).addClass("active");
+                target = $(this).data("target");
+            }
+            //todo add next and previous functionality.
+
+             
+            $(".task-view-body").find("tr").addClass("hidden");
+            $(".task-view-body").find("."+target).removeClass("hidden");
+            
+        })
     }
 
-    function toggleSortIcon(){
-        /**
-         * toggles the view of the sort icon relative to the available sort
-         */
-
-    }
     //load task views
     var tasks = $.get("/model/getTasks/");
     tasks.done(function(data){
@@ -69,7 +65,8 @@ $(function(){
             }
             $(this).data("order", toggledOrder);
 
-            loadTable(data,field,order); //refreshe the table view, sorted in the respective sort
+            loadTable(data,field,order); //refresh the table view, sorted in the respective sort
+
         })
     });
     tasks.fail(ajaxExceptionhandler);

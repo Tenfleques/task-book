@@ -54,6 +54,9 @@ a:hover{
 .link-goto.active{
 	color:rgb(133,16,18) !important ;
 }
+.page-link.active{
+	background-color: rgba(160, 160, 238, 0.19);
+}
 /*navigation links */
 /*form elements */
 input,textarea,button{

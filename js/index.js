@@ -18,24 +18,5 @@ $(function(){
 		}
 	})
 	app.fail(ajaxExceptionhandler);	 
-	
-	//task view controls
-	function sortTable(table, field) {
-		/**
-		 * sort the table using the class of a given column and comparing the contents
-		 */
-		var asc = isDefined(arguments[2]),
-					tbody = table.find('tbody');		
 
-		tbody.find('tr').sort(function(a, b) {
-			if (asc) 
-				return $('td.'+field, a).text().localeCompare($('td.'+field, b).text());			
-			else
-				return $('td.'+field, b).text().localeCompare($('td.'+field,a).text());			
-		}).appendTo(tbody);
-	}	
-	//sortTable($('#mytable'),'asc');
-
-	//load task views
-	
 })

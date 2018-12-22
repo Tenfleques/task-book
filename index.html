@@ -69,22 +69,28 @@
             <div class="col-12 tasks-view mt-5 mb-5">
                 <table class="col-12" name="tasks-view-table" id="task-view-table">
                     <thead>
-                        <tr>
-                            <th> 
+                        <tr class="">
+                            <th class="sort-rows border border-primary" data-order="asc" data-field="username"> 
                                 <span class="lang ru">имя пользователя</span>
                                 <span class="lang en">username</span>
+                                <i class="fa fa-sort-up"></i>
+                                <i class="fa fa-sort-down hidden"></i>
                             </th>
-                            <th>
+                            <th class="sort-rows border border-primary" data-order="asc" data-field="email">
                                 <span class="lang ru">э. почта</span>
                                 <span class="lang en">e-mail</span>
+                                <i class="fa fa-sort-up"></i>
+                                <i class="fa fa-sort-down hidden"></i>
                             </th>
-                            <th>
+                            <th class="sort-rows border border-primary" data-order="asc" data-field="text">
                                 <span class="lang ru">текста задачи</span>
                                 <span class="lang en">task text</span>
+                                <i class="fa fa-sort-up"></i>
+                                <i class="fa fa-sort-down hidden"></i>
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="task-view-body text-center">
                         
                     </tbody>
                 </table>
@@ -102,16 +108,16 @@
                             </a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">1</a>
+                            <a class="page-link" href="#table-1">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">2</a>
+                            <a class="page-link" href="#table-2">2</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">3</a>
+                            <a class="page-link" href="#table-3">3</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="#">
+                            <a class="page-link" href="#table-2">
                                 <span class="lang ru">Следующий</span>
                                 <span class="lang en">Next</span>
                             </a>
@@ -173,7 +179,7 @@
                 </div>
         
                 <em class="col-9 text-right mt-3">
-                    &COPY;<span class="copyright-date">2018 </span> 
+                    &COPY;<span class="copyright-date"> 2018 </span> 
                     <div class="lang en title">
                     </div>
                     <div class="lang ru title">
@@ -189,6 +195,6 @@
           
     <script src="/js/index.js"></script>
     <script src="/js/navigation.js"></script>
-
+    <script src="/js/tasks.js"></script>
 </body>
 </html>

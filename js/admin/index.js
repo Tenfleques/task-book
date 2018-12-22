@@ -1,0 +1,1 @@
+//{token: clientStorage.get("token")}

@@ -1,0 +1,194 @@
+<html><head>
+    <meta name="author" content="Тендай Мапунгвана Чикаке">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="favicon" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/sidemenu.css">
+    <!--[if lt IE 9]>
+  <script src="/js/html5shiv.js"></script>
+<![endif]-->
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <title class="title">
+    </title>
+</head>
+<body class="bg-white">      
+        
+    <!-- navigation for small screens only -->
+    <div class="row">
+        <ul class="ham-container">
+            <li id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            </li>
+            <li class="ham-title text-right lead text-white pr-0">
+                <span class="lang ru appname">
+                
+            </span>
+            <span class="lang en appname" >
+                
+            </span>
+            </li>
+        </ul>
+        <div class="sidemenu left">
+            <div class="list-group border-0 p-3 small-screen-nav">
+                
+            </div>
+        </div>
+    </div>
+    <!-- end of small screen sidemenu -->
+    
+    <!-- big screen navigation -->
+    <nav class="navbar navbar-expand-md navbar-light nav-justified bg-white border border-danger border-top-0 border-left-0 border-right-0" id="main-nav">
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="nav navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav col-12 wide-screen-nav">
+                
+            </ul>
+         </div>
+    </nav>
+    <!-- end of big screen navigation -->
+    
+    <div class="container mt-5 ml-5">
+        
+        <div class="row">
+            <h4 class="col-12">
+               <span class="lang en">Tasks View</span> 
+               <span class="lang ru">Просмотр задач</span> 
+            </h4>
+            <!--start of tasks view -->
+            <div class="col-12 tasks-view mt-5 mb-5">
+                <table class="col-12" name="tasks-view-table" id="task-view-table">
+                    <thead>
+                        <tr>
+                            <th> 
+                                <span class="lang ru">имя пользователя</span>
+                                <span class="lang en">username</span>
+                            </th>
+                            <th>
+                                <span class="lang ru">э. почта</span>
+                                <span class="lang en">e-mail</span>
+                            </th>
+                            <th>
+                                <span class="lang ru">текста задачи</span>
+                                <span class="lang en">task text</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <!--end of tasks view-->
+            <!--tasks view pagination-->
+            <div class="col-12 pr-4">
+                <nav aria-label="table-pagination">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <span class="lang ru">Предыдущий</span>
+                                <span class="lang en">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <span class="lang ru">Следующий</span>
+                                <span class="lang en">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!--end of tasks view pagination-->
+            <!--start of task add form-->
+            <form class="form-horizontal submit-task col-12 mt-5">
+                <div class="form-group">
+                    <label class="control-label" for="email">
+                        <span class="lang ru">э. почта</span>
+                        <span class="lang en">e-mail</span>
+                    </label>
+                    <div class="col-sm-12">
+                        <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="username">
+                        <span class="lang ru">имя пользователя</span>
+                        <span class="lang en">username</span>
+                    </label>
+                    <div class="col-sm-12"> 
+                        <input type="text" class="form-control" id="username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="username">
+                        <span class="lang ru">текста задачи</span>
+                        <span class="lang en">task text</span>
+                    </label> 
+                    <div class="col-sm-offset-2 col-sm-12">
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group"> 
+                    <div class="col-sm-offset-2 col-sm-12">
+                        <button type="submit" class="btn btn-default">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!--end of new task add form-->
+       </div>
+    </div>
+    
+    
+    <footer class="container-fluid mt-5 bg-secondary">
+        <div class="row">
+                <div class="form-group col-3 col-md-1 mt-3">
+                    <select class="form-control" id="select-language">
+                        <option selected="selected">ru</option>
+                        <option>en</option>
+                    </select>
+                </div>
+        
+                <em class="col-9 text-right mt-3">
+                    &COPY;<span class="copyright-date">2018 </span> 
+                    <div class="lang en title">
+                    </div>
+                    <div class="lang ru title">
+                    </div>
+                </em>  
+        </div>                  	
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="/js//libs/bootstrap.min.js"></script>
+    <script src="/js/libs/prototypes.js"></script>
+    <script src="/js/libs/storage.js"></script>
+          
+    <script src="/js/index.js"></script>
+    <script src="/js/navigation.js"></script>
+
+</body>
+</html>

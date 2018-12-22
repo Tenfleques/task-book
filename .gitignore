@@ -2,4 +2,4 @@
 .vscode 
 
 #site sync file
-run.sh
+sync.sh

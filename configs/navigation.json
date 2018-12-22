@@ -1,0 +1,17 @@
+[
+    {
+        "active" : "active",
+        "url" : "/",
+        "caption" : {
+            "en" :  "<i class='fa fa-home'> Home</i>",
+            "ru" : "<i class='fa fa-home'> Дома</i>"
+        }
+    },{
+        "active" : "",
+        "url" : "/admin/",
+        "caption" : {
+            "en" :  "<i class='fa fa-user'> Administrator</i>",
+            "ru" : "<i class='fa fa-user'> Администратор</i>"
+        }
+    }
+]

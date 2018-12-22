@@ -57,9 +57,13 @@ a:hover{
 .page-link.active{
 	background-color: rgba(160, 160, 238, 0.19);
 }
+
+.fa-sort-down, .fa-sort-up, .activate-edit-task{
+	cursor: pointer;
+}
 /*navigation links */
 /*form elements */
-input,textarea,button{
+.form-control{
 	border-radius:0px;
 }
 textarea{
@@ -112,14 +116,7 @@ pre {
 }
 
 /*text*/
-.text-dark-blue{
-	/*color:#0018A8;*/
-	color:#FDFEFE;
-}
 
-/*.text-dark-white{
-	color:#FDFEFE;
-}*/
 /*borders*/
 .border-radius-0{
 	border-radius:0px;
@@ -127,7 +124,7 @@ pre {
 /*borders**/
 /*backgrounds*/
 .bg-faint{
-	background-color:#F8FEFE;
+	background-color:rgba(174, 174, 201, 0.493);
 }
 .banner{
 	background-image:url(../img/banner.jpg);

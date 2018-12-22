@@ -67,12 +67,12 @@
             </h4>
             <!--start of tasks view -->
             <div class="col-12 tasks-view mt-5 mb-5">
-                <table class="col-12" name="tasks-view-table" id="task-view-table">
+                <table class="table col-12" name="tasks-view-table" id="task-view-table">
                     <thead>
-                        <tr class="">
+                        <tr class="task-view-columns">                            
                             <th class="sort-rows border border-primary" data-order="asc" data-field="username"> 
-                                <span class="lang ru">имя пользователя</span>
-                                <span class="lang en">username</span>
+                                <span class="lang ru">Имя пользователя</span>
+                                <span class="lang en">Username</span>
                                 <i class="fa fa-sort-up"></i>
                                 <i class="fa fa-sort-down hidden"></i>
                             </th>
@@ -83,10 +83,14 @@
                                 <i class="fa fa-sort-down hidden"></i>
                             </th>
                             <th class="sort-rows border border-primary" data-order="asc" data-field="text">
-                                <span class="lang ru">текста задачи</span>
-                                <span class="lang en">task text</span>
+                                <span class="lang ru">Текста задачи</span>
+                                <span class="lang en">Task text</span>
                                 <i class="fa fa-sort-up"></i>
                                 <i class="fa fa-sort-down hidden"></i>
+                            </th>
+                            <th class="border border-primary finished-viewer" > 
+                                <span class="lang ru">Задание выполнено</span>
+                                <span class="lang en">Task finished</span>
                             </th>
                         </tr>
                     </thead>
@@ -128,14 +132,15 @@
             
             <!--end of tasks view pagination-->
             <!--start of task add form-->
-            <form class="form-horizontal submit-task col-12 mt-5">
+            <form class="form-horizontal submit-task col-12 mt-5" id="submit-task">
+                <input type="hidden" class="form-control" id="task_id" required>
                 <div class="form-group">
                     <label class="control-label" for="email">
                         <span class="lang ru">э. почта</span>
                         <span class="lang en">e-mail</span>
                     </label>
                     <div class="col-sm-12">
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -144,7 +149,7 @@
                         <span class="lang en">username</span>
                     </label>
                     <div class="col-sm-12"> 
-                        <input type="text" class="form-control" id="username">
+                        <input type="text" class="form-control" id="username" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -153,7 +158,7 @@
                         <span class="lang en">task text</span>
                     </label> 
                     <div class="col-sm-offset-2 col-sm-12">
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control" id="task-text" required></textarea>
                     </div>
                 </div>
                 <div class="form-group"> 
@@ -172,7 +177,7 @@
     <footer class="container-fluid mt-5 bg-secondary">
         <div class="row">
                 <div class="form-group col-3 col-md-1 mt-3">
-                    <select class="form-control" id="select-language">
+                    <select class="form-control international" id="select-language">
                         <option selected="selected">ru</option>
                         <option>en</option>
                     </select>

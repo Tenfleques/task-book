@@ -20,14 +20,3 @@ function getCookie(cname) {
     }
     return "";
 }
-
-var clientStorage = {
-    get : getCookie,
-    set : function(key,value){
-        var exdays = 1;
-        if (isDefined(arguments[2])){
-            exdays = arguments[2];
-        }
-        setCookie(key,value,exdays)
-    },
-}

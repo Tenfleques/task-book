@@ -86,7 +86,7 @@ $(function(){
         /** переключитель языков
          * 
          */
-		var lang = $(this).data("lang");
+        var lang = $(this).find(":selected").text();
 		setCookie("lang",lang,365);
 		internationale();
 	}	
@@ -95,7 +95,7 @@ $(function(){
     reqNavs.done(function(data){
         fillNavs(data);
         internationale();
-        $(".international").on("click",toggleInternationale)
+        $(".international").on("change",toggleInternationale)
         toggleSmallScreenNavControl()
     });
     reqNavs.fail(ajaxExceptionhandler);

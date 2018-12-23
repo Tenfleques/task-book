@@ -1,6 +1,6 @@
 [
     {
-        "active" : "active",
+        "active" : "",
         "url" : "/",
         "caption" : {
             "en" :  "<i class='fa fa-home'> </i> Home",
@@ -8,7 +8,7 @@
         }
     },{
         "active" : "",
-        "url" : "login.html",
+        "url" : "/login.html",
         "caption" : {
             "en" :  "<i class='fa fa-user'> </i> Administrator",
             "ru" : "<i class='fa fa-user'> </i> Администратор"
@@ -19,6 +19,13 @@
         "caption" : {
             "en" :  "<i class='fa fa-sign-out'> </i> Logout",
             "ru" : "<i class='fa fa-sign-out'> </i> Выйти"
+        }
+    },{
+        "active" : "",
+        "url" : "/about",
+        "caption" : {
+            "en" :  "<i class='fa fa-info'> </i> About app",
+            "ru" : "<i class='fa fa-info'> </i> О приложении"
         }
     }
 ]

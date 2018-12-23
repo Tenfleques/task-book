@@ -1,5 +1,5 @@
-CREATE USER 'tendai_task_book'@'localhost' IDENTIFIED BY '%A9]+pL7hf4^%#@%*(923)53';
-\! echo "*** created database user tendai_task_book ***"
+CREATE USER 'tendai_tasker'@'localhost' IDENTIFIED BY '%A9]+pL7hf4^%#@%*(923)53';
+\! echo "*** created database user tendai_tasker ***"
 
 CREATE DATABASE IF NOT EXISTS tendai_task_book;
 \! echo "*** created table database tendai_task_book ***"
@@ -14,10 +14,10 @@ DESCRIBE users;
 
 \! echo
 CREATE TABLE IF NOT EXISTS tasks (
-	taskid INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(256), details VARCHAR(5000), email VARCHAR(256), hashcode VARCHAR(128), UNIQUE(hashcode)
+	taskid INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(256), details VARCHAR(5000), email VARCHAR(256), finished INT(1) DEFAULT 0,  hashcode VARCHAR(128), UNIQUE(hashcode)
 )ENGINE InnoDB;
 
 \! echo "*** created table tasks ***"
 DESCRIBE tasks;
 
-GRANT INSERT,SELECT,UPDATE ON tendai_task_book* TO `tendai_task_book`@`localhost`;
+GRANT INSERT,SELECT,UPDATE ON tendai_task_book.* TO `tendai_tasker`@`localhost`;

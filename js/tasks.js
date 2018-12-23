@@ -6,9 +6,13 @@ function taskRow(index,r){
     var view = "table-" + index % 3; //view regulates the pagination the row is in 
     var html = ""
     var bg = (index%2)? "bg-faint" : "bg-transparent";
-    var _id = row["_id"];
-    delete row._id;
+    var _id = 0;
 
+    if(isDefined(row["_id"])){
+        _id = row["_id"];
+        delete row._id;
+    }
+    
     var trclass = bg+' '+view;
     if(index %3)
        trclass += ' hidden '; 
@@ -80,8 +84,12 @@ $(function(){
                                 /**
                                  * activates the functionality of task finish by the admin
                                  */
+                                var fin = $(this).is(":checked")? 1: 0;
                                 var target = $(this).parents("tr").data("target");
-                                var updateTask = $.post("/model/updateTask/", {"target": target});
+                                var payload = {"target": target, finished: fin, token : getCookie("token")};
+
+                                var updateTask = $.post("/model/updateTask/", payload);
+
                                 updateTask.done(function(updateResponse){
                                     console.log(updateResponse)
                                 });
@@ -104,7 +112,7 @@ $(function(){
         })
         $(".task-view-body").on("click",".activate-edit-task",function(){ //initiate edit row 
             var parent = $(this).parents("tr");
-            $("hidden#task_id").val(parent.data("target"));
+            $("input#task_id").val(parent.data("target"));
             $("input#username").val(parent.children("td.task-username").text()).prop("readonly",true);
             $("input#email").val(parent.children("td.task-email").text()).prop("readonly",true);
             $("textarea#task-text").val(parent.children("td.task-text").text());
@@ -113,9 +121,13 @@ $(function(){
 
     
     //load task views
-    var tasks = $.get("/model/getTasks/");
-    tasks.done(fillAndActivateTable);
-    tasks.fail(ajaxExceptionhandler);
+    function loadData(){
+        var payload = {token : getCookie("token")}
+        var tasks = $.post("/model/getTasks/", payload);
+        tasks.done(fillAndActivateTable);
+        tasks.fail(ajaxExceptionhandler);
+    }
+    
 
     //add tasks
     $(".submit-task").on("submit",function(e){
@@ -127,7 +139,6 @@ $(function(){
             "text" : $("textarea#task-text").val(),
             "_id" : $("input#task_id").val()
         }
-
         var addtasks = $.post("/model/putTask/", payload);
         addtasks.done(function(putResponse){
             //enable inputs, had they been disabled by task text edit by admin
@@ -135,9 +146,13 @@ $(function(){
             $("input#email").prop("readonly",false); 
             //cleans the form 
             document.getElementById("submit-task").reset();
-            fillAndActivateTable(putResponse);
+            console.log(putResponse);   
+            //load updates
+            if(putResponse.pass){
+                loadData();
+            }
         });
         addtasks.fail(ajaxExceptionhandler);
     });
-
+    loadData();
 })

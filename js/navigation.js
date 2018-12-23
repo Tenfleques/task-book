@@ -50,53 +50,26 @@ $(function(){
             wideScreenNavs += wideScreenNavItem(navData[i]);
         }
         
-        $(".wide-screen-nav").html(wideScreenNavs); //populates widescreen navigation
-        $(".small-screen-nav").html(smallScreensNavs); //populates smallscreen navigation
+        $(".wide-screen-nav").html(wideScreenNavs).on("click", "a", processNavAction); //populates widescreen navigation
+        $(".small-screen-nav").html(smallScreensNavs).on("click", "a", processNavAction); //populates smallscreen navigation
     }
-    function toggleSmallScreenNavControl(){
-        // small screen navigation events 
-        $('#nav-icon').click(function(){
-            $(this).toggleClass('open');
-            $(".ham-container").toggleClass("border border-left-0 border-right-0 border-dark open pr-4");
-            $(".left,.ham-title").toggleClass('open');
-            $("body").toggleClass("frozen");
-        });
-        // close navigation sidebar after sidemenu link click
-        $(".sidemenu.left").on("click",".link-goto",function(){
-            $("#nav-icon").toggleClass('open');
-            $(".ham-container").toggleClass("border border-left-0 border-right-0 border-dark open pr-4");
-            $(".left,.ham-title").toggleClass('open');
-            $("body").toggleClass("frozen");
-        })
-    }  
-    function internationale(){
-        /**
-         * for toggling between Ru and En languages
-         */
-        var lang = getCookie("lang");
-		if(lang==""){
-			setCookie("lang","ru",365);
-			lang = "ru";
-        }			
-        $(".lang").addClass("hidden");
-        $(".lang").css("visibility","visible");
-        $(".lang."+lang).removeClass("hidden");
-	}	
-	function toggleInternationale(){
-        /** переключитель языков
-         * 
-         */
-        var lang = $(this).find(":selected").text();
-		setCookie("lang",lang,365);
-		internationale();
-	}	
- 
-    var reqNavs = $.post("/model/navigation/");
+    function processNavAction(e){
+        switch ($(this).attr("href")){
+            case "#logout" : {
+                var token = getCookie("token");
+                setCookie("token","");
+                var logout = $.post("/model/logout/", {"token": token});
+                logout.done(function(data){
+                    window.location.href = "index.html";
+                })
+            }
+        }        
+    }
+    var reqNavs = $.post("/model/navigation/", {token: getCookie("token")});
     reqNavs.done(function(data){
         fillNavs(data);
-        internationale();
-        $(".international").on("change",toggleInternationale)
-        toggleSmallScreenNavControl()
+        toggleSmallScreenNavControl();
+        initInternationalization();
     });
     reqNavs.fail(ajaxExceptionhandler);
 })

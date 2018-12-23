@@ -1,0 +1,12 @@
+version: '3'
+services:
+  mysql:
+    image: mtb:latest
+    ports:
+      - "3306:3306"
+  php-apache:
+    image: www.task-book:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ~/dev/www/tasks/task-book/:/var/www/html/

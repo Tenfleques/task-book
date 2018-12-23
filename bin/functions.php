@@ -1,24 +1,53 @@
 <?php 
-
+session_start();
 $root = $_SERVER['DOCUMENT_ROOT'];
 
 $settings = json_decode(file_get_contents($root."/configs/database.json"),true);
 $dbcon = $settings["mysql"];
-$mysqli = new mysqli($dbcon["host"], $dbcon["user"], $dbcon["password"], $dbcon["database"]);
+
+$mysqli = new mysqli($dbcon["host"], $dbcon["user"], $dbcon["password"], $dbcon["database"], $dbcon["port"]);
 
 
 function getTasks($accessToken = false){
-    $tasks = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT']."/configs/sample.tasks.json"),JSON_UNESCAPED_UNICODE);
-    if($accessToken){
-        return json_encode($tasks,JSON_UNESCAPED_UNICODE);
+    $sampleTasks = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT']."/configs/sample.tasks.json"),JSON_UNESCAPED_UNICODE);
+
+    if(tokenValid($accessToken)){
+        $query = queryMysql("SELECT username, email, details as `text`, finished, hashcode as `_id` FROM tendai_task_book.tasks ORDER BY taskid");
+    }else{
+        $query = queryMysql("SELECT username, email, details as `text`, finished FROM tendai_task_book.tasks ORDER BY taskid");
+    }   
+    $tasks = [];
+    while($row = mysqli_fetch_assoc($query['r'])){
+        $row["finished"] = ($row["finished"])? true : false;
+        $tasks[] = $row;
+    }       
+
+    return $tasks;   
+}
+function updateTask($token, $finished, $hash){
+    if(tokenValid($token)){
+        $sql = "UPDATE tendai_task_book.tasks
+        SET finished='$finished'
+        WHERE hashcode='$hash';";
+        return queryMysql($sql)["r"];
     }
-    $tasks = array_map(function($row){
-        unset($row["_id"]);
-        return $row;
-    },$tasks);
-    return json_encode($tasks,JSON_UNESCAPED_UNICODE);
+    return false;
 }
 
+function tokenValid($token){
+    if(strlen($token) < 10)
+        return false;
+
+    $query = queryMysql("SELECT `username`
+        FROM tendai_task_book.users WHERE `hash` = '$token';");
+
+    $i = 0;
+    while($row = mysqli_fetch_assoc($query["r"])){
+        if($row["username"])
+            return true;
+    };
+    return false;
+}
 function queryMysql($query){
 	global $mysqli;
 	$result = mysqli_query($mysqli,$query) or die(mysqli_error($mysqli));
@@ -46,52 +75,29 @@ function sanitizeString($var){
         $var = mb_convert_encoding($var, 'UTF-8', 'UTF-8');
         $var = htmlentities($var, ENT_QUOTES, 'UTF-8');
         $var = stripslashes($var);
-        $var = mysqli_real_escape_string($mysqli,$var);
+        //$var = mysqli_real_escape_string($mysqli,$var);
         return $var;
 }
-function makedirs($dirpath, $mode=0777) {
-    return is_dir($dirpath) || mkdir($dirpath, $mode, true);
+function hashPassword($pass){
+    $options = [
+        'cost' => 12,
+    ];
+    return password_hash($pass, PASSWORD_BCRYPT, $options);
 }
-function saltise($var,$addsalt=""){
-    $munyu1=$addsalt."4e5&*%$9dfc";
-    $munyu2="dfc&*$#".$addsalt;
-    return md5(sha1($munyu1.$var.$munyu2));
+function initUser(){
+    $pass = hashPassword("123");
+    $sql = "INSERT INTO tendai_task_book.users
+    (username, password)
+    VALUES('admin', '$pass') ON DUPLICATE KEY UPDATE hash=hash;";
+    queryMysql($sql);
 }
-function shuffle_assoc($list) {
-  if (!is_array($list)) return $list;
-
-  $keys = array_keys($list);
-  shuffle($keys);
-  $random = array();
-  foreach ($keys as $key) {
-    $random[$key] = $list[$key];
-  }
-  return $random;
-}
-function getUserIP(){
-    $client  = @$_SERVER['HTTP_CLIENT_IP'];
-    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
-    $remote  = $_SERVER['REMOTE_ADDR'];
-
-    if(filter_var($client, FILTER_VALIDATE_IP)){
-        $ip = $client;
-    }elseif(filter_var($forward, FILTER_VALIDATE_IP)){
-        $ip = $forward;
-    }else{
-        $ip = $remote;
+function getUsers(){
+    $query = queryMysql("SELECT `username`
+    FROM tendai_task_book.users WHERE 1;");
+    $users = [];
+    while($row = mysqli_fetch_assoc($query["r"])){
+        $users[] = $row;
     }
-    return $ip;
-}
-
-function finishText($text){
-    $text =preg_replace('/\s\s+/',' ', $text);
-    return($text);
-}
-function getplaintextintrofromhtml($html, $numchars) {
-    $html = strip_tags($html);
-    $html = html_entity_decode($html, ENT_QUOTES, 'UTF-8');
-    $html = mb_substr($html, 0, $numchars, 'UTF-8');
-    $html .= "...";
-    return $html;
+    return $users;
 }
 ?>

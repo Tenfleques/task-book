@@ -1,8 +1,8 @@
 {
     "mysql": {
-        "host" : "localhost",
-        "user" : "tendai_task_book",
-        "password" : "%A9]+pL7hf4^%#@%*(923)53",
+        "host" : "172.21.0.1",
+        "user" : "root",
+        "password" : "khv21t%12*&bljweuyf8",
         "database" : "tendai_task_book"
-    }
+    }    
 }

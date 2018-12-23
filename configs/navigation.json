@@ -3,15 +3,22 @@
         "active" : "active",
         "url" : "/",
         "caption" : {
-            "en" :  "<i class='fa fa-home'> Home</i>",
-            "ru" : "<i class='fa fa-home'> Дома</i>"
+            "en" :  "<i class='fa fa-home'> </i> Home",
+            "ru" : "<i class='fa fa-home'> </i> Дома"
         }
     },{
         "active" : "",
-        "url" : "/admin/",
+        "url" : "login.html",
         "caption" : {
-            "en" :  "<i class='fa fa-user'> Administrator</i>",
-            "ru" : "<i class='fa fa-user'> Администратор</i>"
+            "en" :  "<i class='fa fa-user'> </i> Administrator",
+            "ru" : "<i class='fa fa-user'> </i> Администратор"
+        }
+    },{
+        "active" : "",
+        "url" : "#logout",
+        "caption" : {
+            "en" :  "<i class='fa fa-sign-out'> </i> Logout",
+            "ru" : "<i class='fa fa-sign-out'> </i> Выйти"
         }
     }
 ]

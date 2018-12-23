@@ -1,7 +1,7 @@
 <html><head>
     <meta name="author" content="Тендай Мапунгвана Чикаке">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -17,8 +17,7 @@
     <title class="title">
     </title>
 </head>
-<body class="bg-white">      
-        
+<body class="bg-white">    
     <!-- navigation for small screens only -->
     <div class="row">
         <ul class="ham-container">
@@ -58,137 +57,142 @@
     </nav>
     <!-- end of big screen navigation -->
     
-    <div class="container mt-5 ml-5">
+    <div class="container-fluid mb-5">
         
-        <div class="row">
-            <h4 class="col-12">
-               <span class="lang en">Tasks View</span> 
-               <span class="lang ru">Просмотр задач</span> 
-            </h4>
-            <!--start of tasks view -->
-            <div class="col-12 tasks-view mt-5 mb-5">
-                <table class="table col-12" name="tasks-view-table" id="task-view-table">
-                    <thead>
-                        <tr class="task-view-columns">                            
-                            <th class="sort-rows border border-primary" data-order="asc" data-field="username"> 
-                                <span class="lang ru">Имя пользователя</span>
-                                <span class="lang en">Username</span>
-                                <i class="fa fa-sort-up"></i>
-                                <i class="fa fa-sort-down hidden"></i>
-                            </th>
-                            <th class="sort-rows border border-primary" data-order="asc" data-field="email">
-                                <span class="lang ru">э. почта</span>
-                                <span class="lang en">e-mail</span>
-                                <i class="fa fa-sort-up"></i>
-                                <i class="fa fa-sort-down hidden"></i>
-                            </th>
-                            <th class="sort-rows border border-primary" data-order="asc" data-field="text">
-                                <span class="lang ru">Текста задачи</span>
-                                <span class="lang en">Task text</span>
-                                <i class="fa fa-sort-up"></i>
-                                <i class="fa fa-sort-down hidden"></i>
-                            </th>
-                            <th class="border border-primary finished-viewer" > 
-                                <span class="lang ru">Задание выполнено</span>
-                                <span class="lang en">Task finished</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="task-view-body text-center">
-                        
-                    </tbody>
-                </table>
-
-            </div>
-            <!--end of tasks view-->
-            <!--tasks view pagination-->
-            <div class="col-12 pr-4">
-                <nav aria-label="table-pagination">
-                    <ul class="pagination justify-content-end">
-                        <!--<li class="page-item disabled">
-                            <a class="page-link" tabindex="-1">
-                                <span class="lang ru">Предыдущий</span>
-                                <span class="lang en">Previous</span>
-                            </a>
-                        </li>-->
-                        <li class="page-item">
-                            <a class="page-link active" data-target="table-0">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" data-target="table-1">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" data-target="table-2">3</a>
-                        </li>
-                        <!--<li class="page-item">
-                            <a class="page-link">
-                                <span class="lang ru">Следующий</span>
-                                <span class="lang en">Next</span>
-                            </a>
-                        </li>-->
-                    </ul>
-                </nav>
+        <div class="row ">
+            <div class="col-12 mt-5">
+                <h4 class="col-12">
+                    <span class="lang en">Tasks View</span> 
+                    <span class="lang ru">Просмотр задач</span> 
+                </h4>
+                <!--start of tasks view -->
+                <div class="tasks-view m-0 mt-5 mb-5">
+                    <table class="table table-responsive-sm" name="tasks-view-table" id="task-view-table">
+                        <thead>
+                            <tr class="task-view-columns">                            
+                                <th class="sort-rows border border-primary" data-order="asc" data-field="username"> 
+                                    <span class="lang ru">Имя пользователя</span>
+                                    <span class="lang en">Username</span>
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down hidden"></i>
+                                </th>
+                                <th class="sort-rows border border-primary" data-order="asc" data-field="email">
+                                    <span class="lang ru">э. почта</span>
+                                    <span class="lang en">e-mail</span>
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down hidden"></i>
+                                </th>
+                                <th class="sort-rows border border-primary" data-order="asc" data-field="text">
+                                    <span class="lang ru">Текста задачи</span>
+                                    <span class="lang en">Task text</span>
+                                    <i class="fa fa-sort-up"></i>
+                                    <i class="fa fa-sort-down hidden"></i>
+                                </th>
+                                <th class="border border-primary finished-viewer" > 
+                                    <span class="lang ru">Задание выполнено</span>
+                                    <span class="lang en">Task finished</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="task-view-body text-center">
+                            
+                        </tbody>
+                    </table>
+    
+                </div>
+                <!--end of tasks view-->
+                <!--tasks view pagination-->
+                <div class="">
+                    <nav aria-label="table-pagination">
+                        <ul class="pagination justify-content-end">
+                            <!--<li class="page-item disabled">
+                                <a class="page-link" tabindex="-1">
+                                    <span class="lang ru">Предыдущий</span>
+                                    <span class="lang en">Previous</span>
+                                </a>
+                            </li>-->
+                            <li class="page-item">
+                                <a class="page-link active" data-target="table-0">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" data-target="table-1">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" data-target="table-2">3</a>
+                            </li>
+                            <!--<li class="page-item">
+                                <a class="page-link">
+                                    <span class="lang ru">Следующий</span>
+                                    <span class="lang en">Next</span>
+                                </a>
+                            </li>-->
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!--end of tasks view pagination-->
+                <!--start of task add form-->
+                <form class="form-horizontal submit-task mt-5 mb-5" id="submit-task">
+                    <input type="hidden" class="form-control" id="task_id" required>
+                    <div class="form-group">
+                        <label class="control-label" for="email">
+                            <span class="lang ru">э. почта</span>
+                            <span class="lang en">e-mail</span>
+                        </label>
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="email" required>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="username">
+                            <span class="lang ru">имя пользователя</span>
+                            <span class="lang en">username</span>
+                        </label>
+                        <div class="col-sm-12"> 
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="username">
+                            <span class="lang ru">текста задачи</span>
+                            <span class="lang en">task text</span>
+                        </label> 
+                        <div class="col-sm-offset-2 col-sm-12">
+                            <textarea class="form-control" id="task-text" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group"> 
+                        <div class="col-sm-offset-2 col-sm-12">
+                            <button type="submit" class="btn btn-default border-primary border-radius-0">
+                                <span class="lang en">Submit</span>
+                                <span class="lang ru">Отправить</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!--end of new task add form-->
             </div>
             
-            <!--end of tasks view pagination-->
-            <!--start of task add form-->
-            <form class="form-horizontal submit-task col-12 mt-5" id="submit-task">
-                <input type="hidden" class="form-control" id="task_id" required>
-                <div class="form-group">
-                    <label class="control-label" for="email">
-                        <span class="lang ru">э. почта</span>
-                        <span class="lang en">e-mail</span>
-                    </label>
-                    <div class="col-sm-12">
-                        <input type="email" class="form-control" id="email" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="username">
-                        <span class="lang ru">имя пользователя</span>
-                        <span class="lang en">username</span>
-                    </label>
-                    <div class="col-sm-12"> 
-                        <input type="text" class="form-control" id="username" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="username">
-                        <span class="lang ru">текста задачи</span>
-                        <span class="lang en">task text</span>
-                    </label> 
-                    <div class="col-sm-offset-2 col-sm-12">
-                        <textarea class="form-control" id="task-text" required></textarea>
-                    </div>
-                </div>
-                <div class="form-group"> 
-                    <div class="col-sm-offset-2 col-sm-12">
-                        <button type="submit" class="btn btn-default">
-                            Submit
-                        </button>
-                    </div>
-                </div>
-            </form>
-            <!--end of new task add form-->
        </div>
     </div>
+    <br>
     
-    
-    <footer class="container-fluid mt-5 bg-secondary">
+    <footer class="container-fluid fixed-bottom card mt-5">
         <div class="row">
-                <div class="form-group col-3 col-md-1 mt-3">
+                <div class="form-group ml-3 mt-3">
                     <select class="form-control international" id="select-language">
-                        <option selected="selected">ru</option>
-                        <option>en</option>
+                        <option selected="selected" id="ru">ru</option>
+                        <option id="id">en</option>
                     </select>
                 </div>
         
                 <em class="col-9 text-right mt-3">
-                    &COPY;<span class="copyright-date"> 2018 </span> 
-                    <div class="lang en title">
-                    </div>
-                    <div class="lang ru title">
-                    </div>
+                    &COPY;
+                    <span class="lang en title">
+                    </span>
+                    <span class="lang ru title">
+                    </span>
+                    <span class="copyright-date"> 2018 </span> 
                 </em>  
         </div>                  	
     </footer>

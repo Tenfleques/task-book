@@ -2,7 +2,7 @@ CREATE USER 'tendai_tasker'@'localhost' IDENTIFIED BY '%A9]+pL7hf4^%#@%*(923)53'
 \! echo "*** created database user tendai_tasker ***"
 
 CREATE DATABASE IF NOT EXISTS tendai_task_book;
-\! echo "*** created table database tendai_task_book ***"
+\! echo "*** created database tendai_task_book ***"
 use tendai_task_book;
 
 CREATE TABLE IF NOT EXISTS users (

@@ -1,3 +1,25 @@
+### Required Docker CE
+
+to get started.
+
+from the shell `./run.sh`
+
+wait a few minutes for the images build and deployment of the docker network.
+
+go to the browser on localhost. 
+
+### Требуется Docker CE
+
+для начала.
+
+из оболочки `./run.sh`
+
+подождите несколько минут для создания образов и развертывания докерской сети.
+
+зайдите в браузер на localhost.
+
+## Русский
+
 Необходимо Создать приложение-задачник.
 
 Задачи состоят из:
@@ -34,3 +56,7 @@ In the application, you need to implement the MVC model using pure PHP. PHP fram
 Please note that accuracy is one of the main criteria for evaluating a test.
 
 The task is designed for one working day. If it comes out a little longer, not scary. It is better to spend a little more time, but implement all the functionality. We will wait for a message from you with the result of the work. Please indicate in your letter the total amount of time spent.
+
+MIT License
+
+Copyright (c) 2018  

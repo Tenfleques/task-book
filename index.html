@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="shortcut icon" href="/img/favicon.png">
-    <link rel="favicon" href="img/favicon.png">
+    <link rel="favicon" href="/img/favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/sidemenu.css">
@@ -67,7 +67,11 @@
                 </h4>
                 <!--start of tasks view -->
                 <div class="tasks-view m-0 mt-5 mb-5">
-                    <table class="table table-responsive-sm" name="tasks-view-table" id="task-view-table">
+                    <div class="admin-info hidden text-info small">
+                        <p class="col-12 lang en"><i class="fa fa-info fa-2x"></i> check to mark finished/unfinished, click the edit button to edit the task. </p>
+                        <p class="col-12 lang ru"><i class="fa fa-info fa-2x"></i> отметьте отметку как законченную / незаконченную, нажмите кнопку редактирования, чтобы отредактировать задачу.</p>
+                    </div>
+                    <table class="table table-responsive-sm border border-primary" name="tasks-view-table" id="task-view-table">
                         <thead>
                             <tr class="task-view-columns">                            
                                 <th class="sort-rows border border-primary" data-order="asc" data-field="username"> 
@@ -131,9 +135,13 @@
                 </div>
                 
                 <!--end of tasks view pagination-->
+                <div class="text-info small p-3 pb-0">
+                    <p class="lang en"><i class="fa fa-info fa-2x"></i> Add a new task by filling all fields below</p>
+                    <p class="lang ru"> <i class="fa fa-info fa-2x"></i> Добавьте новое задание, заполнив все поля ниже</p>
+                </div> 
                 <!--start of task add form-->
-                <form class="form-horizontal submit-task mt-5 mb-5" id="submit-task">
-                    <input type="hidden" class="form-control" id="task_id" required>
+                <form class="border border-primary p-3 form-horizontal submit-task mt-5 mb-5" id="submit-task">       
+                    <input type="hidden" class="form-control" id="task_id">
                     <div class="form-group">
                         <label class="control-label" for="email">
                             <span class="lang ru">э. почта</span>
@@ -163,7 +171,7 @@
                     </div>
                     <div class="form-group"> 
                         <div class="col-sm-offset-2 col-sm-12">
-                            <button type="submit" class="btn btn-default border-primary border-radius-0">
+                            <button type="submit" class="btn bg-transparent border-primary border-radius-0">
                                 <span class="lang en">Submit</span>
                                 <span class="lang ru">Отправить</span>
                             </button>

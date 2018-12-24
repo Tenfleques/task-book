@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="keywords" content="">
         <link rel="shortcut icon" href="/img/favicon.png">
-        <link rel="favicon" href="img/favicon.png">
+        <link rel="favicon" href="/img/favicon.png">
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/css/index.css">
         <link rel="stylesheet" type="text/css" href="/css/sidemenu.css">
@@ -18,20 +18,20 @@
         </title>
     </head>
     <body class="bg-primary p-5">        
-        <div class="container-fluid p-5">
-            <div class="row p-5">
-                <div class="col-12 card mt-5 p-5">
+        <div class="container-fluid p-md-5">
+            <div class="row p-5 p-sm-1">
+                <div class="col-12 card mt-5 pm-5 p-sm-1">
                     <p class="col-12 hidden use-admin">
                         <h4 class="lang en">Login Administrator</h4> 
                         <h4 class="lang ru">Администратор входа</h4>
                          
                     </p>
-                    <button class="btn btn-transparent col-12 hidden register-admin">
+                    <p class="text-primary col-12 hidden register-admin cu-pointer">
                         <span class="lang en">No admin registered, click to register the Administrator</span> 
                         <span class="lang ru">Администратор не зарегистрирован, нажмите, чтобы зарегистрировать Администратора</span> 
-                    </button>
+                    </p>
                     <!--start of task add form-->
-                    <form class="col-sm-12 form-horizontal submit-user mt-5 mb-5" id="submit-user">
+                    <form class="form-horizontal submit-user mt-5 mb-5" id="submit-user">
                         <p class="text-danger error-credentials hidden">
                             <span class="lang en">incorrect username/password</span>
                             <span class="lang ru">Неправильное имя пользователя/пароль</span>
@@ -62,7 +62,7 @@
                     
                         <div class="form-group"> 
                             <div class="col-sm-offset-2 col-sm-12">
-                                <button type="submit" class="btn btn-default border-primary border-radius-0">
+                                <button type="submit" class="btn bg-transparent border-primary border-radius-0">
                                     <span class="lang en">Submit</span>
                                     <span class="lang ru">Отправить</span>
                                 </button>
@@ -79,17 +79,18 @@
             <div class="row">
                     <div class="form-group ml-3 mt-3">
                         <select class="form-control international" id="select-language">
-                            <option selected="selected">ru</option>
-                            <option>en</option>
+                            <option selected="selected" id="ru">ru</option>
+                            <option id="id">en</option>
                         </select>
                     </div>
             
                     <em class="col-9 text-right mt-3">
-                        &COPY;<span class="copyright-date"> 2018 </span> 
-                        <div class="lang en title">
-                        </div>
-                        <div class="lang ru title">
-                        </div>
+                        &COPY;
+                        <span class="lang en title">
+                        </span>
+                        <span class="lang ru title">
+                        </span>
+                        <span class="copyright-date"> 2018 </span> 
                     </em>  
             </div>                  	
         </footer>

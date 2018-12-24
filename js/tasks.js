@@ -43,6 +43,14 @@ function taskRow(index,r){
 }
 $(function(){
     function fillAndActivateTable(data){
+        if(isDefined(data[0])){
+            if(isDefined(data[0]["_id"])){//it is admin account
+                $(".admin-info").removeClass("hidden");
+            }else{
+                $(".admin-info").addClass("hidden");
+            }           
+        }
+        
         loadTable(data);
         $("#task-view-table").on("click",".sort-rows",function(){
             var order = $(this).data("order");
